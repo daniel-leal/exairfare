@@ -1,18 +1,7 @@
 defmodule Exairfare do
-  @moduledoc """
-  Documentation for `Exairfare`.
-  """
+  alias Exairfare.Users.Agent, as: UserAgent
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Exairfare.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def start_agents do
+    UserAgent.start_link(%{})
   end
 end

@@ -1,8 +1,6 @@
 defmodule Exairfare.Users.UserTest do
   use ExUnit.Case
 
-  import Exairfare.Factory
-
   alias Exairfare.Users.User
 
   describe "build/3" do
