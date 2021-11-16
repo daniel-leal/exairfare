@@ -5,7 +5,8 @@ defmodule Exairfare.Users.UserTest do
 
   describe "build/3" do
     test "when all params are valid, returns the user" do
-      response =
+      {:ok, %User{id: id}} =
+        response =
         User.build(
           "Daniel",
           "daniel@banana.com",
@@ -13,7 +14,7 @@ defmodule Exairfare.Users.UserTest do
         )
 
       expected_response =
-        {:ok, %User{cpf: "12345678", email: "daniel@banana.com", name: "Daniel"}}
+        {:ok, %User{id: id, cpf: "12345678", email: "daniel@banana.com", name: "Daniel"}}
 
       assert response == expected_response
     end

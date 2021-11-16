@@ -7,11 +7,10 @@ defmodule Exairfare.Users.Agent do
     Agent.start_link(fn -> %{} end, name: __MODULE__)
   end
 
-  def save(%User{} = user) do
-    uuid = UUID.uuid4()
-    Agent.update(__MODULE__, &update_state(&1, user, uuid))
+  def save(%User{id: id} = user) do
+    Agent.update(__MODULE__, &update_state(&1, user, id))
 
-    {:ok, uuid}
+    {:ok, id}
   end
 
   def get(uuid), do: Agent.get(__MODULE__, &get_user(&1, uuid))
