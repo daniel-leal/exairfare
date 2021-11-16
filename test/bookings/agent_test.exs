@@ -11,7 +11,7 @@ defmodule Exairfare.Bookings.AgentTest do
 
       BookingAgent.start_link(%{})
 
-      assert {:ok, _uuid} = BookingAgent.save(booking)
+      assert :ok = BookingAgent.save(booking)
     end
   end
 
@@ -23,15 +23,16 @@ defmodule Exairfare.Bookings.AgentTest do
     end
 
     test "when the booking is found, returns the booking" do
-      booking = build(:booking)
+      booking_id = "1e81ab8a-e775-4b26-be80-5537fe156067"
+      booking = build(:booking, id: booking_id)
 
-      {:ok, uuid} = BookingAgent.save(booking)
+      BookingAgent.save(booking)
 
-      response = BookingAgent.get(uuid)
+      response = BookingAgent.get(booking_id)
 
       expected_response = {:ok, booking}
 
-      assert response == expected_response
+      assert expected_response == response
     end
 
     test "when the booking is not found, returns an error" do

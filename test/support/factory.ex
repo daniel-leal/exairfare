@@ -15,11 +15,11 @@ defmodule Exairfare.Factory do
 
   def booking_factory do
     %Booking{
-      id: UUID.uuid4(),
-      user_id: "78945612300",
-      complete_date: ~N[2021-11-16 16:00:00],
-      local_origin: "Belém",
-      local_destination: "Brasília"
+      id: "939fde23-294b-46f1-9692-a7a6007f8557",
+      user_id: "70831e44-5820-4b4c-aae1-87b079a2882f",
+      complete_date: ~N[2020-09-01 12:00:00],
+      local_origin: "São Leopoldo",
+      local_destination: "Porto Alegre"
     }
   end
 end
